@@ -18,7 +18,7 @@ namespace ConsoleUI
             //BrandTest();
 
             CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetCarDetails())
+            foreach (var car in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine(car.Description + "/" + car.BrandName + "/" + car.ColorName + "/" + car.DailyPrice);
             } 
@@ -37,12 +37,12 @@ namespace ConsoleUI
 
 
 
-            foreach (var brand in brandManager.GetAll())
+            foreach (var brand in brandManager.GetAll().Data)
             {
                 Console.WriteLine(brand.BrandName);
             }
 
-            Console.WriteLine("BrandId=2 brand -> " + brandManager.GetById(2).BrandName);
+            Console.WriteLine("BrandId=2 brand -> " + brandManager.GetById(2).Data.BrandName);
         }
 
         private static void ColorTest()
@@ -57,12 +57,12 @@ namespace ConsoleUI
 
 
 
-            foreach (var color in colorManager.GetAll())
+            foreach (var color in colorManager.GetAll().Data)
             {
                 Console.WriteLine(color.ColorName);
             }
 
-            Console.WriteLine("ColorId=3 color -> " + colorManager.GetById(3).ColorName);
+            Console.WriteLine("ColorId=3 color -> " + colorManager.GetById(3).Data.ColorName);
         }
 
         private static void CarTest()
@@ -72,23 +72,21 @@ namespace ConsoleUI
 
 
 
-            //foreach (var car in carManager.GetCarsByBrandId(1))
+            //foreach (var car in carManager.GetCarsByBrandId(1).Data)
             //{
             //    Console.WriteLine(car.Description);
             //}
 
-            //foreach (var car in carManager.GetCarsByColorId(2))
+            //foreach (var car in carManager.GetCarsByColorId(2).Data)
             //{
             //    Console.WriteLine(car.Description);
             //}
 
             //carManager.Add(new Car {BrandId=1,ColorId=3,DailyPrice=1500,Description="H",ModelYear=2014 }); //eklenemez
-
             //carManager.Add(new Car { BrandId = 1, ColorId = 3, DailyPrice = 1500, Description = "Hyundai", ModelYear = 2014 });
-
             //carManager.Update(new Car { CarId=1002,BrandId = 1, ColorId = 3, DailyPrice = 1500, Description = "Hyundai Updated", ModelYear = 2014 });
             carManager.Delete(new Car { CarId = 1002, BrandId = 1, ColorId = 3, DailyPrice = 1500, Description = "Hyundai Updated", ModelYear = 2014 });
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetAll().Data)
             {
                 Console.WriteLine(car.Description);
             }
