@@ -27,7 +27,7 @@ namespace Business.Concrete
         {
             //Kurallar
             _colorDal.Delete(color);
-            return new SuccessResult(Messages.BrandDeleted);
+            return new SuccessResult(Messages.ColorDeleted);
         }
 
         public IDataResult<List<Color>> GetAll()
