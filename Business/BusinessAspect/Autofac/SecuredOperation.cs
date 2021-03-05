@@ -18,7 +18,7 @@ namespace Business.BusinessAspect.Autofac
 
         public SecuredOperation(string roles)
         {
-            _roles = roles.Split(','); //virgüle kadar olan yerleri diziye at
+            _roles = roles.Split(',');
             _httpContextAccessor = ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>();
 
         }
@@ -30,7 +30,7 @@ namespace Business.BusinessAspect.Autofac
             {
                 if (roleClaims.Contains(role))
                 {
-                    return; //methodu çalıştırmaya devam et
+                    return; 
                 }
             }
             throw new Exception(Messages.AuthorizationDenied);
