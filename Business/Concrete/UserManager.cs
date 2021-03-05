@@ -40,7 +40,7 @@ namespace Business.Concrete
 
         public User GetByMail(string email)
         {
-            return _userDal.Get(u=>u.Email==email);
+            return _userDal.Get(u => u.Email == email);
         }
 
         public List<OperationClaim> GetClaims(User user)
