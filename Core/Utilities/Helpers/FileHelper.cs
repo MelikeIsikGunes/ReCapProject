@@ -22,6 +22,7 @@ namespace Core.Utilities.Helpers
                     file.CopyTo(uploading);
                 }
             }
+
             var result = CreateNewFilePath(file);
             File.Move(sourcepath, result);
             return imagePath;
